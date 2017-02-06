@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Pierre Alliez</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>798</width>
+    <height>629</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CGAL - 2D Delaunay triangulation</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout">
+    <item row="2" column="0">
+     <widget class="GlViewer" name="viewer" native="true">
+      <property name="locale">
+       <locale language="English" country="UnitedStates"/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Lloyd speed (%)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="lloyd_speed">
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
+        </property>
+        <property name="keyboardTracking">
+         <bool>false</bool>
+        </property>
+        <property name="minimum">
+         <double>50.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>500.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>100.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Default Speed</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="default_speed">
+          <property name="keyboardTracking">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <double>50.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>200.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>20.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>200.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Max Speed</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="max_speed">
+          <property name="keyboardTracking">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <double>200.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>500.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>20.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>300.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Speed gain step</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="speed_step">
+          <property name="keyboardTracking">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <double>1.000000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>50.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>20.000000000000000</double>
+          </property>
+          <property name="value">
+           <double>20.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Speed momentum</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="speed_moment">
+          <property name="keyboardTracking">
+           <bool>false</bool>
+          </property>
+          <property name="maximum">
+           <double>0.900000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
+           <double>0.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QPushButton" name="Lloyd1">
+        <property name="text">
+         <string>Lloyd 1 iteration</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Lloyd10">
+        <property name="text">
+         <string>Lloyd 10 iteration</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Lloyd100">
+        <property name="text">
+         <string>Lloyd 100 iteration</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="LloydTo1000">
+        <property name="text">
+         <string>Lloyd until 1000 iter</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>798</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuData">
+    <property name="title">
+     <string>Data</string>
+    </property>
+    <addaction name="actionClear"/>
+    <addaction name="actionUniform_points"/>
+    <addaction name="actionUnitCircle"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionView_Delaunay_edges"/>
+    <addaction name="actionView_Voronoi_edges"/>
+    <addaction name="actionView_Convex_hull"/>
+    <addaction name="actionView_Face_under_mouse"/>
+    <addaction name="actionView_Line_walk"/>
+    <addaction name="actionView_Nearest_vertex"/>
+    <addaction name="actionView_Cell_centroid"/>
+   </widget>
+   <widget class="QMenu" name="menuAlgorithms">
+    <property name="title">
+     <string>Algorithms</string>
+    </property>
+    <addaction name="actionLloyd"/>
+    <addaction name="actionControl_Oscillation"/>
+   </widget>
+   <widget class="QMenu" name="menuBorder">
+    <property name="title">
+     <string>Border</string>
+    </property>
+    <addaction name="actionHexagon"/>
+    <addaction name="actionHourglass"/>
+    <addaction name="actionSnake"/>
+    <addaction name="actionSnake_soft"/>
+    <addaction name="actionHourglass_large"/>
+    <addaction name="actionHourglass_small"/>
+   </widget>
+   <widget class="QMenu" name="menuI_O">
+    <property name="title">
+     <string>I/O</string>
+    </property>
+    <addaction name="actionWrite_Image"/>
+    <addaction name="actionMonteCarlo_Energy"/>
+    <addaction name="actionAnalytic_Energy"/>
+    <addaction name="actionWrite_Max_Movement"/>
+   </widget>
+   <addaction name="menuData"/>
+   <addaction name="menuAlgorithms"/>
+   <addaction name="menuView"/>
+   <addaction name="menuBorder"/>
+   <addaction name="menuI_O"/>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/fileNew.png</normaloff>icons/fileNew.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+   <property name="statusTip">
+    <string>Clear</string>
+   </property>
+   <property name="shortcut">
+    <string>Space</string>
+   </property>
+  </action>
+  <action name="actionView_Delaunay_edges">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Delaunay edges</string>
+   </property>
+   <property name="shortcut">
+    <string>D</string>
+   </property>
+  </action>
+  <action name="actionView_Voronoi_edges">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Voronoi edges</string>
+   </property>
+   <property name="shortcut">
+    <string>V</string>
+   </property>
+  </action>
+  <action name="actionLloyd">
+   <property name="text">
+    <string>Lloyd</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionView_Convex_hull">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Convex hull</string>
+   </property>
+  </action>
+  <action name="actionView_Face_under_mouse">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Face under mouse</string>
+   </property>
+  </action>
+  <action name="actionView_Line_walk">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Line walk</string>
+   </property>
+  </action>
+  <action name="actionView_Nearest_vertex">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Nearest vertex</string>
+   </property>
+  </action>
+  <action name="actionUnitCircle">
+   <property name="text">
+    <string>Unit circle</string>
+   </property>
+  </action>
+  <action name="actionView_Cell_centroid">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Cell centroid</string>
+   </property>
+  </action>
+  <action name="actionHexagon">
+   <property name="text">
+    <string>Hexagon</string>
+   </property>
+  </action>
+  <action name="actionHourglass">
+   <property name="text">
+    <string>Hourglass</string>
+   </property>
+  </action>
+  <action name="actionSnake">
+   <property name="text">
+    <string>Snake</string>
+   </property>
+  </action>
+  <action name="actionSnake_soft">
+   <property name="text">
+    <string>Soft snake</string>
+   </property>
+  </action>
+  <action name="actionHourglass_large">
+   <property name="text">
+    <string>Hourglass large</string>
+   </property>
+  </action>
+  <action name="actionHourglass_small">
+   <property name="text">
+    <string>Hourglass small</string>
+   </property>
+  </action>
+  <action name="actionUniform_points">
+   <property name="text">
+    <string>Uniform points</string>
+   </property>
+  </action>
+  <action name="actionWrite_Image">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Write Image</string>
+   </property>
+  </action>
+  <action name="actionMonteCarlo_Energy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Write MonteCarlo Energy</string>
+   </property>
+  </action>
+  <action name="actionAnalytic_Energy">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Write Analytic Energy</string>
+   </property>
+  </action>
+  <action name="actionWrite_Max_Movement">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Write Max Movement</string>
+   </property>
+  </action>
+  <action name="actionControl_Oscillation">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Control Oscillation</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GlViewer</class>
+   <extends>QWidget</extends>
+   <header>glviewer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
